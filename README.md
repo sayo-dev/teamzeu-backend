@@ -10,7 +10,7 @@ This repository contains the containerized Spring Boot backend service for **Vel
 
 ---
 
-## 🛠️ Tech Stack & Requirements
+## Tech Stack & Requirements
 
 - **Java Development Kit (JDK):** Version 21
 - **Framework:** Spring Boot 4.0.6
@@ -33,7 +33,19 @@ teamzeu-backend/
 └── src/
     ├── main/
     │   ├── java/         # Application source code
-    │   │   └── com/teamzeu/velo/VeloApplication.java   # Spring Boot Main class
+    │   │   └── com/teamzeu/velo/
+    │   │       ├── VeloApplication.java  # Spring Boot Main class
+    │   │       ├── controllers/         # REST Controllers
+    │   │       ├── services/            # Service Interfaces
+    │   │       │   └── service_impl/    # Service Implementations (e.g. JwtService)
+    │   │       ├── repositories/        # Database JPA Repositories
+    │   │       ├── entities/            # JPA Entity Models
+    │   │       ├── dto/                 # Data Transfer Objects (e.g. ApiResponse)
+    │   │       ├── mappers/             # DTO to Entity Mappers
+    │   │       ├── enums/               # Application Enums (e.g. Roles, Provider)
+    │   │       ├── security/            # Security & JWT Configuration components
+    │   │       ├── exceptions/          # Custom Exceptions & Global Exception Handler
+    │   │       └── common/              # Common/Shared Utilities and ApiResponse wrapper
     │   └── resources/
     │       └── application.yml   # Spring Boot application configuration
     └── test/
@@ -62,6 +74,16 @@ spring:
 | `DB_NAME` | `your_db_name` | Name of the PostgreSQL database |
 | `REDIS_HOST` | `localhost` | Host address of the Redis server |
 | `REDIS_PORT` | `6370` | Port of the Redis server |
+| `MAIL_HOST` | `smtp.example.com` | SMTP mail server host address |
+| `MAIL_PORT` | `587` | SMTP mail server port |
+| `MAIL_USERNAME` | `your_email@example.com` | SMTP authentication username |
+| `MAIL_PASSWORD` | `your_email_password` | SMTP authentication password |
+| `JWT_SECRET` | `your_jwt_secret_key` | Secret key used for signing JWT access and refresh tokens |
+| `ACCESS_TOKEN_EXPIRES_IN` | `3600000` | Expiration time of the JWT Access Token in milliseconds (e.g. 1 hour) |
+| `REFRESH_TOKEN_EXPIRES_IN` | `604800000` | Expiration time of the JWT Refresh Token in milliseconds (e.g. 7 days) |
+| `CLOUDINARY_CLOUD_NAME` | `your_cloudinary_cloud_name` | Cloudinary cloud account name |
+| `CLOUDINARY_API_KEY` | `your_cloudinary_api_key` | Cloudinary API Key |
+| `CLOUDINARY_API_SECRET` | `your_cloudinary_api_secret` | Cloudinary API Secret |
 
 ---
 
@@ -97,6 +119,15 @@ Verify everything is working correctly by executing the test suite:
 ```bash
 ./mvnw test
 ```
+
+---
+
+## API Documentation
+
+Once the Spring Boot application is running, you can access the interactive API documentation and Swagger UI at:
+
+* **Swagger UI:** [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+* **OpenAPI Specification (JSON):** [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
 
 ---
 

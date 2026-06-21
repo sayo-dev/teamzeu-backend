@@ -1,6 +1,6 @@
 package com.teamzeu.velo.config;
 
-import com.teamzeu.velo.jwt.JwtAuthenticationFilter;
+import com.teamzeu.velo.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
