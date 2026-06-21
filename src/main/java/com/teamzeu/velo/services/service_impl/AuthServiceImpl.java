@@ -36,7 +36,7 @@ public class AuthServiceImpl implements AuthService {
     private final OtpService otpService;
 
     @Override
-    public AuthResponseDto signUp(SignUpRequestDto signUpRequestDto) {
+    public void signUp(SignUpRequestDto signUpRequestDto) {
         // Verify if user already exists
         if (userRepository.findByEmail(signUpRequestDto.email()).isPresent()) {
             throw new CustomConflictException("User with email " + signUpRequestDto.email() + " already exists");
@@ -70,7 +70,7 @@ public class AuthServiceImpl implements AuthService {
         otpTemplateModel.put("expiryMinutes", 5);
 
         EmailRequest otpEmail = EmailRequest.builder()
-                .from("noreply@teamzeu.com")
+                .from("noreply@velo.com")
                 .to(signUpRequestDto.email())
                 .subject("Your OTP for Velo Registration")
                 .templateName("email/otp-email.html")
@@ -78,8 +78,6 @@ public class AuthServiceImpl implements AuthService {
                 .build();
         emailService.sendOtpEmail(otpEmail);
 
-        // Return response DTO
-        return dtoMappers.toAuthResponseDto(user);
     }
 
     @Transactional

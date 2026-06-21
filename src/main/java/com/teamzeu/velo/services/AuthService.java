@@ -7,7 +7,7 @@ import com.teamzeu.velo.dto.LoginRequestDto;
 import com.teamzeu.velo.dto.SignUpRequestDto;
 
 public interface AuthService {
-    AuthResponseDto signUp(SignUpRequestDto signUpRequestDto);
+    void signUp(SignUpRequestDto signUpRequestDto);
 
     AuthResponseDto verifyOtp(OtpVerificationRequestDto otpVerificationRequestDto);
 
