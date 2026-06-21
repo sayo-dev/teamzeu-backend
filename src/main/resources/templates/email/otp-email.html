@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Zeu - Email Verification</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .greeting {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .otp-section {
+            background-color: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .otp-label {
+            font-size: 13px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        .otp-code {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+            text-align: center;
+            letter-spacing: 3px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+        }
+        .expiry-notice {
+            background-color: #fef3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 12px 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .warning-icon {
+            margin-right: 8px;
+        }
+        .instructions {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 30px;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .divider {
+            height: 1px;
+            background-color: #e9ecef;
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            background-color: #667eea;
+            color: #ffffff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+        .button:hover {
+            background-color: #764ba2;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Team Zeu</h1>
+        <p style="margin: 10px 0 0 0; font-size: 14px; opacity: 0.9;">Email Verification</p>
+    </div>
+
+    <div class="content">
+        <div class="greeting">
+            Hello <strong th:text="${fullName}">User</strong>,
+        </div>
+
+        <p>Welcome to Team Zeu! We're excited to have you on board. To activate your account, please verify your email address using the One-Time Password (OTP) below.</p>
+
+        <div class="otp-section">
+            <div class="otp-label">Your Verification Code</div>
+            <div class="otp-code" th:text="${otp}">123456</div>
+            <p style="text-align: center; color: #666; font-size: 13px; margin: 10px 0 0 0;">
+                Enter this code in the verification screen
+            </p>
+        </div>
+
+        <div class="expiry-notice">
+            <span class="warning-icon">⏱</span>
+            This OTP is valid for <span th:text="${expiryMinutes}">10</span> minutes only. Please enter it before it expires.
+        </div>
+
+        <div class="instructions">
+            <strong>How to verify your email:</strong>
+            <ol style="margin: 10px 0; padding-left: 20px;">
+                <li>Copy the 6-digit code above</li>
+                <li>Go back to the Team Zeu app</li>
+                <li>Paste the code in the verification field</li>
+                <li>Click Submit</li>
+            </ol>
+        </div>
+
+        <p style="color: #666; font-size: 14px;">
+            If you didn't sign up for a Team Zeu account, you can safely ignore this email. Your email address will not be verified.
+        </p>
+
+        <div class="divider"></div>
+
+        <p style="color: #999; font-size: 13px; margin: 15px 0;">
+            <strong>Need help?</strong> If you have any questions or need assistance, please don't hesitate to reach out to our support team at
+            <a href="mailto:support@teamzeu.com" style="color: #667eea;">support@teamzeu.com</a>
+        </p>
+    </div>
+
+    <div class="footer">
+        <p style="margin: 0;">
+            © 2026 Team Zeu. All rights reserved. |
+            <a href="https://teamzeu.com/privacy">Privacy Policy</a> |
+            <a href="https://teamzeu.com/terms">Terms of Service</a>
+        </p>
+        <p style="margin: 10px 0 0 0; color: #999;">
+            This is an automated message. Please do not reply to this email.
+        </p>
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Team Zeu</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            opacity: 0.95;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .greeting {
+            font-size: 18px;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        .features {
+            margin: 30px 0;
+        }
+        .feature-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .feature-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        .feature-content h3 {
+            margin: 0 0 5px 0;
+            color: #667eea;
+            font-size: 16px;
+        }
+        .feature-content p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            padding: 14px 40px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 25px 0;
+            font-weight: 500;
+            font-size: 16px;
+            text-align: center;
+        }
+        .button:hover {
+            opacity: 0.9;
+        }
+        .cta-section {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 4px;
+            margin: 25px 0;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+        .cta-section p {
+            margin: 0 0 15px 0;
+            color: #555;
+        }
+        .social-links {
+            margin: 25px 0;
+            text-align: center;
+        }
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            margin: 0 8px;
+            background-color: #f0f0f0;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background-color: #667eea;
+            color: #ffffff;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 25px 30px;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer p {
+            margin: 8px 0;
+        }
+        .divider {
+            height: 1px;
+            background-color: #e9ecef;
+            margin: 25px 0;
+        }
+        .highlight {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Welcome to <span th:text="${appName}">Team Zeu</span>!</h1>
+        <p>Your account is now verified and ready to use</p>
+    </div>
+
+    <div class="content">
+        <div class="greeting">
+            <strong>Hello <span th:text="${fullName}">User</span>!</strong><br>
+            Thank you for joining our community. We're thrilled to have you on board! Your email has been successfully verified, and your account is now fully activated.
+        </div>
+
+        <div class="highlight">
+            🎉 All set! You can now log in to your account and start exploring everything Team Zeu has to offer.
+        </div>
+
+        <h2 style="color: #667eea; margin-top: 30px; margin-bottom: 20px;">What You Can Do Now</h2>
+
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-icon">👥</div>
+                <div class="feature-content">
+                    <h3>Build Your Team</h3>
+                    <p>Create and manage teams, invite members, and collaborate on projects effortlessly.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <div class="feature-content">
+                    <h3>Track Progress</h3>
+                    <p>Monitor team performance with real-time analytics and detailed reports.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">💬</div>
+                <div class="feature-content">
+                    <h3>Communicate</h3>
+                    <p>Stay connected with your team through integrated messaging and notifications.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">⚙️</div>
+                <div class="feature-content">
+                    <h3>Customize</h3>
+                    <p>Personalize your profile, settings, and workspace to match your preferences.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <p>Ready to get started? Log in to your account now:</p>
+            <a th:href="${appUrl}" class="button">Go to Dashboard</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3 style="color: #333; margin-bottom: 15px;">Need Help Getting Started?</h3>
+        <p style="color: #666; margin-bottom: 15px;">
+            We've prepared some resources to help you make the most of your Team Zeu experience:
+        </p>
+        <ul style="color: #666; margin: 0; padding-left: 20px;">
+            <li><a href="https://teamzeu.com/help" style="color: #667eea;">Getting Started Guide</a></li>
+            <li><a href="https://teamzeu.com/tutorials" style="color: #667eea;">Video Tutorials</a></li>
+            <li><a href="https://teamzeu.com/documentation" style="color: #667eea;">Full Documentation</a></li>
+            <li><a href="https://teamzeu.com/faq" style="color: #667eea;">FAQ</a></li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <p style="color: #999; font-size: 13px; margin: 15px 0;">
+            <strong>Have questions or need support?</strong> Our support team is here to help. Reach us at
+            <a href="mailto:support@teamzeu.com" style="color: #667eea;">support@teamzeu.com</a> or visit our
+            <a href="https://teamzeu.com/help" style="color: #667eea;">help center</a>.
+        </p>
+
+        <p style="color: #999; font-size: 13px; margin: 10px 0;">
+            Follow us on social media to stay updated with the latest news and features:
+        </p>
+
+        <div class="social-links">
+            <a href="https://twitter.com/teamzeu" title="Twitter">𝕏</a>
+            <a href="https://facebook.com/teamzeu" title="Facebook">f</a>
+            <a href="https://linkedin.com/company/teamzeu" title="LinkedIn">in</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p style="margin: 0 0 10px 0;">
+            © 2026 Team Zeu. All rights reserved.
+        </p>
+        <p>
+            <a href="https://teamzeu.com/privacy">Privacy Policy</a> |
+            <a href="https://teamzeu.com/terms">Terms of Service</a> |
+            <a href="https://teamzeu.com/contact">Contact Us</a>
+        </p>
+        <p style="margin: 10px 0 0 0; color: #999;">
+            This is an automated message. Please do not reply to this email.
+        </p>
+    </div>
+</div>
+</body>
+</html>
+
