@@ -4,10 +4,7 @@ import com.teamzeu.velo.common.ResponseHandler;
 import com.teamzeu.velo.otp.dto.OtpVerificationRequestDto;
 import com.teamzeu.velo.user.authService.AuthServiceImpl;
 import com.teamzeu.velo.user.authService.AuthServiceInterface;
-import com.teamzeu.velo.user.dto.AuthLoginResponse;
-import com.teamzeu.velo.user.dto.AuthResponseDto;
-import com.teamzeu.velo.user.dto.LoginRequestDto;
-import com.teamzeu.velo.user.dto.SignUpRequestDto;
+import com.teamzeu.velo.user.dto.*;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -33,10 +30,22 @@ public class AuthController {
         return responseHandler.responseHandler("user logged in successfully", HttpStatus.OK, response);
     }
 
-    @PostMapping("/verify-otp")
+    @PostMapping("/verify-email")
     public ResponseEntity<?> verifyOtp(@Valid @RequestBody OtpVerificationRequestDto otpVerificationRequestDto) {
         AuthResponseDto response = authService.verifyOtp(otpVerificationRequestDto);
-        return ResponseEntity.ok(response);
+        return responseHandler.responseHandler("OTP verified successfully", HttpStatus.OK, response);
+    }
+
+    @PostMapping("/resend-otp")
+    public ResponseEntity<?> requestOtp(@Valid @RequestBody RequestOtpRequest otpRequest) {
+        AuthResponseDto response = authService.requestOtp(otpRequest);
+        return responseHandler.responseHandler("OTP sent successfully", HttpStatus.OK, response);
+    }
+
+    @PostMapping("/refresh-token")
+    public ResponseEntity<?> requestAccessToken(@Valid @RequestBody AccessTokenRequest accessTokenRequest) {
+        AuthLoginResponse response = authService.getAccessToken(accessTokenRequest);
+        return responseHandler.responseHandler("Access token sent successfully", HttpStatus.OK, response);
     }
 }
 
