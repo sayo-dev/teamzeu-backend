@@ -1,17 +1,20 @@
 package com.teamzeu.velo.services;
 
 import com.teamzeu.velo.dto.OtpVerificationRequestDto;
-import com.teamzeu.velo.dto.AuthLoginResponse;
-import com.teamzeu.velo.dto.AuthResponseDto;
+import com.teamzeu.velo.dto.LoginResponse;
 import com.teamzeu.velo.dto.LoginRequestDto;
 import com.teamzeu.velo.dto.SignUpRequestDto;
+import com.teamzeu.velo.dto.AccessTokenRequest;
+import com.teamzeu.velo.dto.RequestOtpRequest;
 
 public interface AuthService {
     void signUp(SignUpRequestDto signUpRequestDto);
 
-    AuthResponseDto verifyOtp(OtpVerificationRequestDto otpVerificationRequestDto);
+    void verifyOtp(OtpVerificationRequestDto otpVerificationRequestDto);
 
-    AuthLoginResponse login(LoginRequestDto loginRequestDto);
+    LoginResponse login(LoginRequestDto loginRequestDto);
 
-    AuthLoginResponse getAccessToken(String refreshToken);
+    LoginResponse getAccessToken(AccessTokenRequest accessTokenRequest);
+
+    void resendOtp(RequestOtpRequest requestOtpRequest);
 }

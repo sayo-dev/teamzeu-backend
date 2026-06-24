@@ -55,7 +55,7 @@ public class EmailServiceImpl implements EmailService {
 
             String htmlContent = templateEngine.process(emailRequest.getTemplateName(), context);
 
-            String from = emailRequest.getFrom() != null ? emailRequest.getFrom() : "noreply@teamzeu.com";
+            String from = emailRequest.getFrom() != null ? emailRequest.getFrom() : "noreply@velo.com";
             helper.setFrom(from);
             helper.setTo(emailRequest.getTo());
             helper.setSubject(subject);

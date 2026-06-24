@@ -6,9 +6,9 @@ import com.teamzeu.velo.entities.User;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DtoMappers {
+public class UserMapper {
 
-    public User toUSer(SignUpRequestDto signUpRequestDto) {
+    public User toEntity(SignUpRequestDto signUpRequestDto) {
         return User.builder()
                 .email(signUpRequestDto.email())
                 .fullName(signUpRequestDto.fullName())
@@ -18,7 +18,7 @@ public class DtoMappers {
                 .build();
     }
 
-    public AuthResponseDto toAuthResponseDto(User user) {
+    public AuthResponseDto toResponse(User user) {
         return AuthResponseDto.builder()
                 .id(user.getId())
                 .fullName(user.getFullName())
